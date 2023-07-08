@@ -1,7 +1,6 @@
 import React, {  useState } from "react";
 import Header from "../../components/header/Header";
 import NavBar from "../../components/navbar/NavBar";
-import "./Retreat.css";
 import {
   Box,
   Button,

@@ -1,11 +1,9 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
 import "./register.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import { Box, FormLabel, TextField } from "@mui/material";
 
 const Register = () => {

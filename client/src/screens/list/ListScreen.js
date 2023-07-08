@@ -7,19 +7,18 @@ import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
-import Footer from "../../components/footer/Footer";
 
 const ListScreen = () => {
   const location = useLocation();
 
-  const [destination, setDestination] = useState(location.state.destination);
+  const [destination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.dates);
-  const [options, setOptions] = useState(location.state.options);
+  const [options] = useState(location.state.options);
   const [openDate, setOpenDate] = useState(false);
   const [min, setMin] = useState(undefined);
   const [max, setMax] = useState(undefined);
 
-  const { data, loading, error, reFetch } = useFetch(
+  const { data, loading, reFetch } = useFetch(
     `http://localhost:8800/api/hotels?city=${destination}&min=${min || 0}&max=${max || 20000}`
   );
 

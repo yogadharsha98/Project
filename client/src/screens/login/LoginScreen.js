@@ -6,8 +6,6 @@ import "./login.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import NavBar from "../../components/navbar/NavBar";
-import Header from "../../components/header/Header";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({

@@ -13,6 +13,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import hotelBookingRoute from './routes/hotelBooking.js'
 import forumRoute from './routes/forum.js'
+import eventRoute from './routes/events.js'
 import commentRoute from './routes/comment.js'
 
 
@@ -49,6 +50,7 @@ app.use("/api/rooms", roomsRoute);
 app.use("/api/retreat", retreatRoute);
 app.use("/api/retreatBooking", retreatBookingRoute);
 app.use("/api/forum", forumRoute);
+app.use("/api/event", eventRoute);
 app.use("/api/comment", commentRoute);
 
 

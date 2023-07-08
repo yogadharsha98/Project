@@ -15,8 +15,6 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import "./Forum.css";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import MessageIcon from "@mui/icons-material/Message";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -48,7 +46,7 @@ const Forum = () => {
     author: user.username,
   });
 
-  const { data, loading, error } = useFetch(
+  const { data } = useFetch(
     "http://localhost:8800/api/forum" // Use the flight ID in the API endpoint
   );
   useEffect(() => {
@@ -75,7 +73,6 @@ const Forum = () => {
         author: user.username,
       });
     } catch (error) {
-      // Handle error
       console.log("Error:", error);
     }
   };
@@ -90,11 +87,11 @@ const Forum = () => {
 
   const handleRowClick = async (forum) => {
     setSelectedForum(forum);
-    setSelectedCommentContent(""); // Clear the selected comment content
+    setSelectedCommentContent(""); 
 
     if (forum.comments.length > 0) {
-      // Assuming the comments are stored as objects with content and author properties
-      const selectedComment = forum.comments[0]; // Assuming you want to display the first comment
+      
+      const selectedComment = forum.comments[0]; 
 
       setSelectedCommentContent(
         `${selectedComment.author}: ${selectedComment.content}`
@@ -115,19 +112,16 @@ const Forum = () => {
     };
 
     try {
-      // Update the selected forum with the new comment
       const updatedForum = {
         ...selectedForum,
         comments: [...selectedForum.comments, newComment],
       };
 
-      // Update the forum in the database
       await axios.put(
         `http://localhost:8800/api/forum/${selectedForum._id}`,
         updatedForum
       );
-
-      // Update the details state with the updated forum
+      
       setDetails((prevDetails) =>
         prevDetails.map((forum) =>
           forum._id === updatedForum._id ? updatedForum : forum

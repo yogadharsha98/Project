@@ -60,5 +60,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:8800/api"
+  "proxy": "https://project-crud.onrender.com"
+
 }

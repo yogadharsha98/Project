@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import NavBar from "../../components/navbar/NavBar";
-import "./Flight.css";
 import {
   Box,
   Button,
-  FormControl,
   FormLabel,
   MenuItem,
   Select,
@@ -15,11 +13,9 @@ import useFetch from "../../hooks/useFetch";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import dayjs from "dayjs";
-import "dayjs/locale/en"; // Import the desired locale
-
+import "dayjs/locale/en"; 
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const FlightScreen = () => {
   const [price, setPrice] = useState(0);
@@ -91,7 +87,7 @@ const FlightScreen = () => {
     e.preventDefault();
     sendRequest().then(() =>
       history(
-        `/payment?flightId=${data._id}&name=${input.name}&price=${price}`
+        `/thankyou?flightId=${data._id}&name=${input.name}&price=${price}`
       )
     );
   };
