@@ -10,6 +10,8 @@ import Forum from './screens/forum/ForumScreen'
 import RetreatListScreen from './screens/retreatList/RetreatListScreen';
 import ThankScreen from './screens/thankyou/thankYou';
 import RetreatScreen from './screens/retreat/RetreatScreen';
+import EventScreen from './screens/eventList/EventScreen';
+import EventBookingScreen from './screens/eventbooking/EventBookingScreen';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path='/forum' element={<Forum />} />
         <Route path='/retreat' element={<RetreatListScreen />} />
         <Route path='/retreat/:id' element={<RetreatScreen />} />
+        <Route path='/event' element={<EventScreen />} />
+        <Route path='/event/:id' element={<EventBookingScreen />} />
         <Route path='/thankyou' element={<ThankScreen />} />
       </Routes>
     </BrowserRouter>

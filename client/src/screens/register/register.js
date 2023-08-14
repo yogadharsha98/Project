@@ -29,7 +29,7 @@ const Register = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("/auth/register", {
+      .post("/api/auth/register", {
         username: String(input.username),
         email: String(input.email),
         country: String(input.country),

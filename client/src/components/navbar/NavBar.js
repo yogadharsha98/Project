@@ -21,7 +21,7 @@ const NavBar = () => {
             to="/retreat"
             label="Wellness Retreats"
           />
-          <Tab LinkComponent={NavLink} to="/events" label="Events" />
+          <Tab LinkComponent={NavLink} to="/event" label="Events" />
           <Tab LinkComponent={NavLink} to="/forum" label="Forum" />
           
         </div>
