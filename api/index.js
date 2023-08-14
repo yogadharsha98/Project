@@ -15,7 +15,7 @@ import hotelBookingRoute from './routes/hotelBooking.js'
 import forumRoute from './routes/forum.js'
 import eventRoute from './routes/events.js'
 import commentRoute from './routes/comment.js'
-
+import eventBookingRoute from './routes/eventBooking.js'
 
 const app = express();
 dotenv.config();
@@ -51,6 +51,7 @@ app.use("/api/retreat", retreatRoute);
 app.use("/api/retreatBooking", retreatBookingRoute);
 app.use("/api/forum", forumRoute);
 app.use("/api/event", eventRoute);
+app.use("/api/eventBooking", eventBookingRoute);
 app.use("/api/comment", commentRoute);
 
 

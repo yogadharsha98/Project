@@ -9,6 +9,10 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  date:{
+    type: Date,
+    required: true,
+  },
   
   photos: {
     type: [String],
