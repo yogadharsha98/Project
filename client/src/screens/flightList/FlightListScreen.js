@@ -8,7 +8,7 @@ import SearchItem from "../../components/searchItem/SearchFlightItem";
 const FlightListScreen = () => {
  
   const { data, loading } = useFetch(
-    `http://localhost:8800/api/flights`
+    `https://project-crud.onrender.com/api/flights`
   );
   
   return (

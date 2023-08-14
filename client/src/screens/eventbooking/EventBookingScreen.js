@@ -18,7 +18,7 @@ const EventBookingScreen = () => {
   const eventId = window.location.pathname.split("/").pop(); 
 
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/event/${eventId}` 
+    `https://project-crud.onrender.com/api/event/${eventId}` 
   );
 
   const [input, setInput] = useState({

@@ -19,7 +19,7 @@ const ListScreen = () => {
   const [max, setMax] = useState(undefined);
 
   const { data, loading, reFetch } = useFetch(
-    `http://localhost:8800/api/hotels?city=${destination}&min=${min || 0}&max=${max || 20000}`
+    `https://project-crud.onrender.com/api/hotels?city=${destination}&min=${min || 0}&max=${max || 20000}`
   );
 
   const handleClick = ()=>{
