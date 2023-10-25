@@ -72,7 +72,7 @@ const Reserve = ({ setOpen, hotelId, dates: reservationDates, price }) => {
       const hotelBookingData = {
         hotelId: hotelId,
         roomIds: selectedRooms,
-        name: user.name, // Replace with the actual user's name
+        name: user.username, // Replace with the actual user's name
         email: user.email, // Replace with the actual user's email
         dates: alldates,
         price: price,
