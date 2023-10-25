@@ -25,7 +25,7 @@ const ThankScreen = () => {
         marginRight="auto"
         marginTop={8}
       >
-        <p>{name}, Thank your for your booking. Good Luck!</p>
+        <h2>{name} Thank your for your booking. Good Luck!</h2>
         
         
       </Box>

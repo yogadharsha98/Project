@@ -25,7 +25,7 @@ const FlightScreen = () => {
   const flightId = window.location.pathname.split("/").pop(); // Extract flight ID from the URL
 
   const { data, loading, error } = useFetch(
-    `https://project-crud.onrender.com/api/flights/${flightId}` // Use the flight ID in the API endpoint
+    `http://localhost:8800/api/flights/${flightId}` // Use the flight ID in the API endpoint
   );
 
   const [input, setInput] = useState({

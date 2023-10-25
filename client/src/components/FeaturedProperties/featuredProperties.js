@@ -4,7 +4,7 @@ import useFetch from "../../hooks/useFetch";
 
 const FeaturedProperties = () => {
   const { data, loading, error } = useFetch(
-    "https://project-crud.onrender.com/api/hotels?featured=true&limit=4"
+    "http://localhost:8800/api/hotels?featured=true&limit=4"
   );
 
   return (

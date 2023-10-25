@@ -7,10 +7,14 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
-const Reserve = ({ setOpen, hotelId }) => {
+const Reserve = ({ setOpen, hotelId, dates: reservationDates, price }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error } = useFetch(`https://project-crud.onrender.com/api/hotels/room/${hotelId}`);
+  const { data } = useFetch(`/api/hotels/room/${hotelId}`);
+
+  const { user } = useContext(AuthContext);
+
   const { dates } = useContext(SearchContext);
 
   const getDatesInRange = (startDate, endDate) => {
@@ -53,18 +57,39 @@ const Reserve = ({ setOpen, hotelId }) => {
 
   const handleClick = async () => {
     try {
+      // First, update room availability
       await Promise.all(
-        selectedRooms.map((roomId) => {
-          const res = axios.put(`https://project-crud.onrender.com/api/rooms/availability/${roomId}`, {
+        selectedRooms.map(async (roomId) => {
+          // Update room availability by sending a PUT request
+          const res = await axios.put(`/api/rooms/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;
         })
       );
+  
+      // After updating room availability, make a POST request for hotel booking
+      const hotelBookingData = {
+        hotelId: hotelId,
+        roomIds: selectedRooms,
+        name: user.name, // Replace with the actual user's name
+        email: user.email, // Replace with the actual user's email
+        dates: alldates,
+        price: price,
+      };
+  
+      // Send the POST request to store hotel booking data
+      await axios.post('/api/hotelbooking', hotelBookingData);
+  
+      // After successful booking, navigate to the thank you page
       setOpen(false);
-      navigate("/");
-    } catch (err) {}
+      navigate('/thankyou');
+    } catch (error) {
+      // Handle any errors here
+      console.error('Error handling hotel booking:', error);
+    }
   };
+  
   return (
     <div className="reserve">
       <div className="rContainer">
@@ -74,6 +99,19 @@ const Reserve = ({ setOpen, hotelId }) => {
           onClick={() => setOpen(false)}
         />
         <span>Select your rooms:</span>
+        {reservationDates && reservationDates.length > 0 ? (
+          // Display the dates here
+          reservationDates.map((date, index) => (
+            <div key={index}>
+              {date.startDate.toLocaleDateString()} to{" "}
+              {date.endDate.toLocaleDateString()}
+            </div>
+          ))
+        ) : (
+          // Handle the case when reservationDates is undefined or empty
+          <div>No reservation dates available.</div>
+        )}
+
         {data.map((item) => (
           <div className="rItem" key={item._id}>
             <div className="rItemInfo">
@@ -82,6 +120,7 @@ const Reserve = ({ setOpen, hotelId }) => {
               <div className="rMax">
                 Max people: <b>{item.maxPeople}</b>
               </div>
+
               <div className="rPrice">{item.price}</div>
             </div>
             <div className="rSelectRooms">
@@ -106,4 +145,4 @@ const Reserve = ({ setOpen, hotelId }) => {
     </div>
   );
 };
-export default Reserve;
+export default Reserve; 

@@ -43,7 +43,8 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendRequest().then(() =>
-      history(
+    alert("successfuly registered!"),  
+    history(
         '/login'
       )
     );

@@ -21,7 +21,7 @@ const RetreatScreen = () => {
   const retreatId = window.location.pathname.split("/").pop(); 
 
   const { data, loading, error } = useFetch(
-    `https://project-crud.onrender.com/api/retreat/${retreatId}` 
+    `http://localhost:8800/api/retreat/${retreatId}` 
   );
 
   const [input, setInput] = useState({
@@ -50,7 +50,7 @@ const RetreatScreen = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("https://project-crud.onrender.com/api/retreatBooking", {
+      .post("http://localhost:8800/api/retreatBooking", {
         retreatId: data._id,
         retreatTitle: data.title,
         location: data.location,

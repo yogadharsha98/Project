@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch";
 import SearchEventItem from "../../components/searchItem/SearchEventItem";
 
 const EventScreen = () => {
-  const { data, loading } = useFetch(`https://project-crud.onrender.com/api/event`);
+  const { data, loading } = useFetch(`http://localhost:8800/api/event`);
 
   return (
     <div>

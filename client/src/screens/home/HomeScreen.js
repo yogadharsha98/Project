@@ -21,7 +21,6 @@ export const HomeScreen = () => {
         <FeaturedProperties />
         <Gallery />
         <MailList />
-        
         <Footer />
       </div>
     </div>
