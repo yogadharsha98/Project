@@ -40,7 +40,7 @@ const NewRetreat = () => {
         photos: list,
       };
 
-      await axios.post("https://project-crud.onrender.com/api/retreat", newretreat);
+      await axios.post("http://localhost:8800/api/retreat", newretreat);
       window.alert("Retreat added successfully")
       
     } catch (error) {
