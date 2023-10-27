@@ -4,7 +4,6 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import { flightInputs } from "../../formSource";
-import useFetch from "../../hooks/useFetch"
 import axios from "axios";
 
 const NewFlight = () => {
@@ -15,7 +14,6 @@ const NewFlight = () => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  console.log(files)
   const handleClick= async (e)=>{
     e.preventDefault()
 

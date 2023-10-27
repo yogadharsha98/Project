@@ -54,6 +54,7 @@ const NewHotel = () => {
       };
 
       await axios.post("http://localhost:8800/api/hotels", newhotel);
+      window.alert("Hotel added successfully")
       
     } catch (error) {
       console.log(error)

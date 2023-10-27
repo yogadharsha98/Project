@@ -11,7 +11,7 @@ const Datatable = ({columns}) => {
   const path = location.pathname.split("/")[1];
   const [list, setList] = useState([]);
   const { data, loading, error } = useFetch(`/api/${path}`);
-
+  const [selectedRow, setSelectedRow] = useState(null); 
   
   useEffect(() => {
     if (data) {
@@ -34,7 +34,7 @@ const Datatable = ({columns}) => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to={`/users/${params.row._id}`} style={{ textDecoration: "none" }}>
+            <Link to={`/api/${path}/${params.row._id}`} style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -48,6 +48,18 @@ const Datatable = ({columns}) => {
       },
     },
   ];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const handleRowClick = (params) => {
+    setSelectedRow(params.row);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -73,8 +85,24 @@ const Datatable = ({columns}) => {
         rowsPerPageOptions={[9]}
         checkboxSelection
         getRowId={(row) => row._id}
+        onRowClick={handleRowClick}
       />
+      {selectedRow && (
+        <div className="details-container">
+          {/* Display the details of the selected row in a <p> tag below the table */}
+          <h2>Selected Row Details</h2>
+          <p>
+            <strong>ID:</strong> {selectedRow.id}
+          </p>
+          <p>
+            {selectedRow.name}
+          </p>
+          
+          {/* Add more details as needed */}
+        </div>
+      )}
     </div>
+    
   );
 };
 

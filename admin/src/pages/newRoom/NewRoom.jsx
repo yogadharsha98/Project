@@ -24,6 +24,7 @@ const NewRoom = () => {
     const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
     try {
       await axios.post(`http://localhost:8800/api/rooms/${hotelId}`, { ...info, roomNumbers });
+      window.alert("Room added successfully")
     } catch (err) {
       console.log(err);
     }
