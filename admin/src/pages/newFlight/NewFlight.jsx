@@ -38,7 +38,7 @@ const NewFlight = () => {
         photos: list,
       };
 
-      await axios.post("http://localhost:8800/api/flights", newflight);
+      await axios.post("https://project-crud.onrender.com/api/flights", newflight);
       window.alert("Flight added successfully")
       
     } catch (error) {

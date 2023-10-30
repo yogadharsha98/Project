@@ -3,13 +3,13 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "john_doe",
+    placeholder: "Jane Doe",
   },
   {
     id: "email",
     label: "Email",
     type: "email",
-    placeholder: "john_doe@gmail.com",
+    placeholder: "jane_doe@gmail.com",
   },
   {
     id: "phone",
@@ -173,6 +173,24 @@ export const flightInputs = [
     placeholder: "About flight",
   },
   {
+    id: "arrivaltime",
+    label: "Arrival time",
+    type: "text",
+    placeholder: "8.00am",
+  },
+  {
+    id: "departuretime",
+    label: "Departure time",
+    type: "text",
+    placeholder: "10.00am",
+  },
+  {
+    id: "reachtime",
+    label: "Reach time",
+    type: "text",
+    placeholder: "10.10am",
+  },
+  {
     id: "cheapestPrice",
     label: "Cheapest Price",
     type: "number",
@@ -204,5 +222,38 @@ export const retreatInputs = [
     label: "Cheapest Price",
     type: "number",
     placeholder: 2000,
+  },
+];
+
+export const eventInputs = [
+  {
+    id: "title",
+    label: "Title",
+    type: "text",
+    placeholder: "Title of the event",
+  },
+  {
+    id: "location",
+    label: "Location",
+    type: "text",
+    placeholder: "location",
+  },
+  {
+    id: "desc",
+    label: "Description",
+    type: "text",
+    placeholder: "About Event",
+  },
+  {
+    id: "cheapestPrice",
+    label: "Cheapest Price",
+    type: "number",
+    placeholder: 2000,
+  },
+  {
+    id: "date",
+    label: "Date",
+    type: "date",
+    placeholder: "Date",
   },
 ];

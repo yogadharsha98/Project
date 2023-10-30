@@ -9,11 +9,13 @@ import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
-import { hotelColumns, roomColumns, userColumns,flightsColumns,flightBookingColumns, retreatBookingColumns, retreatColumns, hotelBookingColumns } from "./datatablesource";
+import { hotelColumns, roomColumns, userColumns,flightsColumns,flightBookingColumns, retreatBookingColumns, retreatColumns, hotelBookingColumns, eventBookingColumns, eventColumns } from "./datatablesource";
 import NewHotel from "./pages/newHotel/NewHotel";
 import NewRoom from "./pages/newRoom/NewRoom";
 import NewFlight from './pages/newFlight/NewFlight'
 import NewRetreat from "./pages/newRetreat/NewRetreat";
+import NewEvent from "./pages/newEvent/NewEvent";
+import EditUser from "./pages/EditUser/EditUser";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -249,6 +251,63 @@ function App() {
                 }
               />
             </Route>
+
+            <Route path="event">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={eventColumns}/>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewEvent />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+
+            <Route path="eventBooking">
+              <Route
+                index
+                element={
+                  <ProtectedRoute>
+                    <List columns={eventBookingColumns}/>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <ProtectedRoute>
+                    <Single />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <ProtectedRoute>
+                    <NewEvent />
+                  </ProtectedRoute>
+                }
+              />
+            </Route>
+            <Route path="edit" element={<ProtectedRoute>
+                    <EditUser />
+                  </ProtectedRoute>} />
             
           </Route>
         </Routes>

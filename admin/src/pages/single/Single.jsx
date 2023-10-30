@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Chart from "../../components/chart/Chart";
 import List from "../../components/table/Table";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Single = () => {
   const { id } = useParams();
@@ -15,12 +15,14 @@ const Single = () => {
         <Navbar />
         <div className="top">
           <div className="left">
-            <div className="editButton">Edit</div>
-            <p>URL ID: {id}</p>
+            <div className="editButton">
+              <Link to='/users/new'>Edit</Link>
+            </div>
+            
             <h1 className="title">Information</h1>
             <div className="item">
               <img
-                src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
                 alt=""
                 className="itemImg"
               />
@@ -52,7 +54,7 @@ const Single = () => {
           </div>
         </div>
         <div className="bottom">
-        <h1 className="title">Last Transactions</h1>
+        <h1 className="title">Last Bookings</h1>
           <List/>
         </div>
       </div>

@@ -15,6 +15,7 @@ import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import BedIcon from '@mui/icons-material/Bed';
 import AirplaneTicketIcon from '@mui/icons-material/AirplaneTicket';
 import SelfImprovementIcon from '@mui/icons-material/SelfImprovement';
+import EventIcon from '@mui/icons-material/Event';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
@@ -82,6 +83,19 @@ const Sidebar = () => {
             <li>
             <SelfImprovementIcon className="icon" />
             <span>Retreat bookings</span>
+          </li>
+          </Link>
+          <Link to="/event" style={{ textDecoration: "none" }}>
+            <li>
+            <EventIcon className="icon" />
+            <span>Event</span>
+          </li>
+          </Link>
+
+          <Link to="/eventBooking" style={{ textDecoration: "none" }}>
+            <li>
+            <EventIcon className="icon" />
+            <span>Event bookings</span>
           </li>
           </Link>
           

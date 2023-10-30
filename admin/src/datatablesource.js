@@ -138,6 +138,21 @@ export const flightsColumns = [
     width: 100,
   },
   {
+    field: "arrivaltime",
+    headerName: "Arrival time",
+    width: 100,
+  },
+  {
+    field: "departuretime",
+    headerName: "Departure time",
+    width: 100,
+  },
+  {
+    field: "reachtime",
+    headerName: "Reach time",
+    width: 100,
+  },
+  {
     field: "desc",
     headerName: "Description",
     width: 150,
@@ -244,6 +259,75 @@ export const retreatBookingColumns = [
     field: "email",
     headerName: "Email",
     width: 120,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 120,
+  },
+  {
+    field: "price",
+    headerName: "Price",
+    width: 70,
+  },
+];
+
+export const eventColumns = [
+  { field: "_id", headerName: "ID", width: 170 },
+  {
+    field: "title",
+    headerName: "Title",
+    width: 150,
+  },
+  {
+    field: "location",
+    headerName: "Location",
+    width: 100,
+  },
+  {
+    field: "desc",
+    headerName: "Description",
+    width: 150,
+  },
+  {
+    field: "cheapestPrice",
+    headerName: "Cheapest Price",
+    width: 100,
+  },
+  {
+    field: "date",
+    headerName: "Date",
+    width: 100,
+  },
+];
+
+export const eventBookingColumns = [
+  { field: "_id", headerName: "ID", width: 100 },
+  {
+    field: "eventId",
+    headerName: "Retreat Id",
+    width: 100,
+  },
+  {
+    field: "eventTitle",
+    headerName: "Title",
+    width: 150,
+  },
+  {
+    field: "location",
+    headerName: "Location",
+    width: 150,
+  },
+  
+  {
+    field: "name",
+    headerName: "name",
+    width: 100,
+  },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 150,
   },
   {
     field: "date",

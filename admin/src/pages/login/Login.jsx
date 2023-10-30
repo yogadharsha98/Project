@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/api/auth/login", credentials);
+      const res = await axios.post("https://project-crud.onrender.com/api/auth/login", credentials);
       if (res.data.isAdmin) {
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
 
@@ -42,6 +42,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="lContainer">
+        <h3 style={{color: "#0071c2"}}>Hi there! Let's sign in here</h3>
         <input
           type="text"
           placeholder="username"
