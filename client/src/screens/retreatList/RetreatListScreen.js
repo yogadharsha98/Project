@@ -9,7 +9,7 @@ import SearchRetreatItem from "../../components/searchItem/SearchRetreatItem";
 const RetreatListScreen = () => {
  
   const { data, loading} = useFetch(
-    `http://localhost:8800/api/retreat`
+    `https://project-crud.onrender.com/api/retreat`
   );
 
   return (

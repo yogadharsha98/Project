@@ -25,7 +25,7 @@ const FlightScreen = () => {
   const flightId = window.location.pathname.split("/").pop(); // Extract flight ID from the URL
 
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/flights/${flightId}` // Use the flight ID in the API endpoint
+    `https://project-crud.onrender.com/api/flights/${flightId}` // Use the flight ID in the API endpoint
   );
 
   const [input, setInput] = useState({
@@ -69,7 +69,7 @@ const FlightScreen = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:8800/api/flightBooking", {
+      .post("https://project-crud.onrender.com/api/flightBooking", {
         flightId: data._id,
         flightName: data.name,
         to: data.to,

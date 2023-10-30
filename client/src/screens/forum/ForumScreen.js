@@ -47,7 +47,7 @@ const Forum = () => {
   });
 
   const { data } = useFetch(
-    "http://localhost:8800/api/forum" // Use the flight ID in the API endpoint
+    "https://project-crud.onrender.com/api/forum" // Use the flight ID in the API endpoint
   );
   useEffect(() => {
     if (data) {
@@ -68,7 +68,7 @@ const Forum = () => {
 
   const sendRequest = async () => {
     try {
-      await axios.post("http://localhost:8800/api/forum", {
+      await axios.post("https://project-crud.onrender.com/api/forum", {
         content: input.content,
         author: user.username,
       });
@@ -118,7 +118,7 @@ const Forum = () => {
       };
 
       await axios.put(
-        `http://localhost:8800/api/forum/${selectedForum._id}`,
+        `https://project-crud.onrender.com/api/forum/${selectedForum._id}`,
         updatedForum
       );
       

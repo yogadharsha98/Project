@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
+      const res = await axios.post("https://project-crud.onrender.com/api/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
       navigate("/");
     } catch (err) {
@@ -37,12 +37,13 @@ const Login = () => {
     <>
       <div className="login">
         <Form>
+        <h3 style={{color: "#0071c2"}}>Hi there! Let's sign in here</h3>
           <Form.Group className="mb-3" id="username">
-            <Form.Label>User Name</Form.Label>
+            
             <Form.Control
               type="text"
               id="username"
-              placeholder="Enter user name"
+              placeholder="User name"
               onChange={handleChange}
             />
             <Form.Text className="text-muted">
@@ -51,7 +52,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" id="password">
-            <Form.Label>Password</Form.Label>
+            
             <Form.Control
               type="password"
               id="password"

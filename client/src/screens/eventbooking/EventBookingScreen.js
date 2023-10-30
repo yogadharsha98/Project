@@ -18,7 +18,7 @@ const EventBookingScreen = () => {
   const eventId = window.location.pathname.split("/").pop(); 
 
   const { data, loading, error } = useFetch(
-    `http://localhost:8800/api/event/${eventId}` 
+    `https://project-crud.onrender.com/api/event/${eventId}` 
   );
 
   const [input, setInput] = useState({
@@ -38,7 +38,7 @@ const EventBookingScreen = () => {
 
   const sendRequest = async () => {
     await axios
-      .post("http://localhost:8800/api/eventBooking", {
+      .post("https://project-crud.onrender.com/api/eventBooking", {
         eventId: data._id,
         eventTitle: data.title,
         location: data.location,

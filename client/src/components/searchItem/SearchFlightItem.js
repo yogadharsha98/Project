@@ -15,8 +15,10 @@ const SearchItem = ({ item }) => {
         <span className="siSubtitle">
           From: {item.from}
         </span>
-        <span className="siFeatures">{item.desc}</span>
-        <span className="siCancelOp">Free cancelation</span>
+        
+        <span className="siTimeOp">Arrival Time: {item.arrivaltime}</span>
+        <span className="siTimeOp">Departure Time: {item.departuretime}</span>
+        <span className="siTimeOp">Reach: {item.reachtime}</span>
         <span className="siCancelOpSubtitle">
           You can cancel later, so lock in this greate price today!
         </span>

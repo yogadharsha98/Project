@@ -27,7 +27,7 @@ const HotelScreen = () => {
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   
-  const { data, loading } = useFetch(`http://localhost:8800/api/hotels/find/${id}`);
+  const { data, loading } = useFetch(`https://project-crud.onrender.com/api/hotels/find/${id}`);
   const {user}=useContext(AuthContext)
   const {dates,options}= useContext(SearchContext)
 
@@ -106,7 +106,7 @@ const HotelScreen = () => {
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
-              <span>Elton St 125 New york</span>
+              <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
               {data.distance}m from center

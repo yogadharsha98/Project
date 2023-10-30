@@ -11,7 +11,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Reserve = ({ setOpen, hotelId, dates: reservationDates, price }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data } = useFetch(`/api/hotels/room/${hotelId}`);
+  const { data } = useFetch(`https://project-crud.onrender.com/api/hotels/room/${hotelId}`);
 
   const { user } = useContext(AuthContext);
 
@@ -61,7 +61,7 @@ const Reserve = ({ setOpen, hotelId, dates: reservationDates, price }) => {
       await Promise.all(
         selectedRooms.map(async (roomId) => {
           // Update room availability by sending a PUT request
-          const res = await axios.put(`/api/rooms/availability/${roomId}`, {
+          const res = await axios.put(`https://project-crud.onrender.com/api/rooms/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;
@@ -79,7 +79,7 @@ const Reserve = ({ setOpen, hotelId, dates: reservationDates, price }) => {
       };
   
       // Send the POST request to store hotel booking data
-      await axios.post('/api/hotelbooking', hotelBookingData);
+      await axios.post('https://project-crud.onrender.com/api/hotelbooking', hotelBookingData);
   
       // After successful booking, navigate to the thank you page
       setOpen(false);
